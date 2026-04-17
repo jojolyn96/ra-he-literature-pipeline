@@ -1,15 +1,22 @@
 # Install dependencies
 install:
-    python3 -m venv venv
-    . venv/bin/activate && pip install -r requirements.txt
+	python3 -m venv venv
+	. venv/bin/activate && pip install -r requirements.txt
 
-# Run full pipeline
+# Run paper search
 run:
-    . venv/bin/activate && python main.py
+	. venv/bin/activate && python main.py
 
 # Process PDFs
 extract:
-    . venv/bin/activate && python scripts/process_pdfs.py
+	. venv/bin/activate && python scripts/process_pdfs.py
 
-# Full pipeline (recommended entry point)
-all: install run extract
+# Build RA vs strain dataset
+ra_dataset:
+	. venv/bin/activate && python scripts/build_ra_strain_dataset.py
+
+# Full pipeline
+all: extract ra_dataset
+
+search:
+	. venv/bin/activate && python main.py
