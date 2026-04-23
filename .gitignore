@@ -2,9 +2,10 @@ venv/
 __pycache__/
 *.pyc
 
-# Ignore all data files EXCEPT CSVs
+# Ignore all data files EXCEPT CSVs and png
 data/*
 !data/*.csv
+!data/*.png
 
 # Ignore PDFs (large files)
 papers/*.pdf

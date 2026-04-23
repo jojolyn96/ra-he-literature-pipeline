@@ -15,8 +15,11 @@ extract:
 ra_dataset:
 	. venv/bin/activate && python scripts/build_ra_strain_dataset.py
 
-# Full pipeline
-all: extract ra_dataset
+plot:
+	. venv/bin/activate && python scripts/plot_ra_strain.py
 
 search:
 	. venv/bin/activate && python main.py
+# Full pipeline
+all: extract ra_dataset plot
+
